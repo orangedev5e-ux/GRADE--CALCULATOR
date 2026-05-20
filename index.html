@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #display {
+            font-size: 48px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+            h1{
+              background-color:green;
+              border-block: solid;
+              color: white;
+            }
+        
+    </style>
+</head>
+<body>
+    <h1>Grade Calculator</h1>
+    
+    <label>Enter Marks (0-100):</label>
+    <input type="number" id="input" placeholder="Enter marks">
+    
+    <br>
+    <p>Grade<div id="display">-</div></p>
+    <button id="btn">Enter</button>
+    
+    
+    <script>
+        const gradeBtn = document.querySelector("#btn");
+        const grader = document.querySelector("#display");
+        const inputField = document.querySelector("#input");
+        
+        gradeBtn.addEventListener("click", function(){
+            let grades = Number(inputField.value);
+            
+            if(grades < 0 || grades > 100 || isNaN(grades)){
+                grader.textContent = "Enter 0-100";
+            } else if(grades >= 90){
+                grader.textContent = "A";
+            } else if(grades >= 75){
+                grader.textContent = "B";
+            } else if(grades >= 50){
+                grader.textContent = "C";
+            } else if(grades >= 35){
+                grader.textContent = "D";
+            } else {
+                grader.textContent = "Fail";
+            }
+        });
+    </script>
+</body>
+</html>
